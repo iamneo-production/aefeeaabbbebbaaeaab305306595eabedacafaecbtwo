@@ -7,7 +7,7 @@ public class ApiController {
     CustomerRepo custRepo;
 
     @GetMapping("/{id}")
-	public Optional<Customer> getEmpDetails(@PathVariable(value = "id") int custId) {
+	public Optional<Customar> getEmpDetails(@PathVariable(value = "id") int custId) {
 
 		System.out.println("inside controller " + custId);
 		Optional<Customer> customer = custRepo.findById(custId);
