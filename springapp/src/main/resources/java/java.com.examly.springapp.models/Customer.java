@@ -1,10 +1,26 @@
 package com.examly.springapp;
+
+
+@Entity
+@Table(name="CUSTOMERS")
 public class Customer {
+
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="CUSTOMERID")
     private int customerId;
+    @Column(name="CUSTOMERNAME")
     private String customerName;
+    @Column(name="AGE")
     private int age;
+    @Column(name="MOBILE")
     private long mobile;
+
+    @ManyToOne
+	@JoinColumn(name ="BILLID")
     bill Bill;
+
+
     public int getCustomerId() {
         return customerId;
     }
@@ -43,7 +59,12 @@ public class Customer {
         Bill = bill;
     }
     public Customer() {
-        super
+        super();
+    }
+    @Override
+    public String toString() {
+        return "Customer [Bill=" + Bill + ", age=" + age + ", customerId=" + customerId + ", customerName="
+                + customerName + ", mobile=" + mobile + "]";
     }
 
     

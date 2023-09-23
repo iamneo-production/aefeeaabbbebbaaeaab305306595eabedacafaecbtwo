@@ -1,8 +1,16 @@
 package com.examly.springapp;
 
+import java.lang.annotation.Inherited;
+
+@Entity
+@Table(name="BILLS")
 public class Bill{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="BILLID")
     private int billId;
+    @Column(name="TOTAL")
     private int total;
     public int getBillId() {
         return billId;
@@ -22,6 +30,10 @@ public class Bill{
     }
     public Bill() {
         super();
+    }
+    @Override
+    public String toString() {
+        return "Bill [billId=" + billId + ", total=" + total + "]";
     }
 
 
